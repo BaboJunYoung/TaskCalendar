@@ -1,0 +1,143 @@
+/* 1. 전체 화면에서 컨테이너 중앙 정렬 */
+.add-task-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* 2. 할 일 기록 박스 스타일 */
+.add-task-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff;
+    border: 1.5px solid #000000;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 상단 타이틀 */
+.add-task-box h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #1e293b;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* 에러 메시지
+.error {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1.5px solid #fca5a5;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+} */
+
+/* 3. 입력창들을 담는 바구니 (세로로 배치) */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px; /* 각 항목 간의 간격 */
+    margin-bottom: 34px;
+    width: 100%;
+}
+
+/* 개별 입력 그룹 (.input 및 .color-category 공통 정렬) */
+.input, .color-category {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 라벨과 입력창 사이 간격 */
+}
+
+/* 모든 라벨 디자인 */
+.input-container label {
+    font-size: 15px;
+    color: #475569;
+    font-weight: 600;
+}
+
+/* 4. [핵심] 입력창(텍스트/숫자) 및 드롭다운 공통 디자인 */
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    outline: none;
+    box-sizing: border-box; /* 패딩 때문에 박스 깨지는 것 방지 */
+    transition: all 0.2s ease;
+}
+
+/* 마우스를 올리거나 클릭(포커스)했을 때 활성화 효과 */
+.input-container input:focus,
+.input-container select:focus {
+    border-color: #000000;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. 💡 숫자(type="number") 입력창의 못생긴 증감 화살표 강제 숨기기 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield; /* 파이어폭스용 */
+}
+
+/* 6. 드롭다운(select) 박스 전용 디자인 화살표 커스텀 */
+.input-container select {
+    cursor: pointer;
+    appearance: none; /* 브라우저 기본 화살표 삭제 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px; /* 화살표와 글자 겹침 방지 */
+}
+
+
+.add-task-box button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1.5px solid #000000;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 버튼 마우스 호버 효과
+.add-task-box button[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #000000;
+} */
+
+.error, .complete{
+    color: red;
+    font-weight: 900;
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+.complete {
+    color: lime;
+}

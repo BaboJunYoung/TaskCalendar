@@ -1,0 +1,110 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.login-container > .login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+
+    background-color: #ffffff;
+    border: 1.5px solid #000000;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* 로그인하라 제목 */
+.login-box > h2 {
+    font-size: 32px;
+}
+
+.login-box > .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+}
+
+/* label + input */
+.input-container > .input {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; */
+    position: relative;
+
+    gap: 0;
+
+    width: 100%;
+}
+.input > label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 2px 5px;
+    
+    transition: all 0.2s ease;
+}
+.input > input:focus + label,
+.input > input:not(:placeholder-shown) + label {
+    top: -3px;
+    left: 12px;
+    font-size: 12px;
+}
+.input > input {
+    font-size: 20px;
+    padding: 7px 10px;
+
+    width: 100%;
+
+    border-radius: 10px;
+    border: 1.5px solid black;
+}
+
+/* 제출버튼 */
+.login-box > button {
+    width: 100%;
+
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+
+    color: white;
+    background-color: royalblue;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* 비번찾기 / 회원가입 컨테이너 */
+.login-box > .other-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px
+}
+.other-container > a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.error {
+    color: red;
+    font-weight: 900;
+    font-size: 18px;
+}

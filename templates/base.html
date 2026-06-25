@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block styles %} {% endblock %} 
+</head>
+<body>
+
+    <div class="side-tab">
+        <a class="logo-container" href="/">
+            <img class="logo-img" src="{{ url_for('static', filename='images/img.png') }}" alt="Task Calendar">
+        </a>
+        <nav>
+            <a class="nav-item {% if current_page == 'home' %}active{% endif %}" href="/">
+                Home
+            </a>
+            <a class="nav-item {% if current_page == 'calendar' %}active{% endif %}" href="/calendar">
+                Calendar
+            </a>
+            <a class="nav-item {% if current_page == 'today-tasks' %}active{% endif %}" href="/today-tasks">
+                Today's Tasks
+            </a>
+            <a class="nav-item {% if current_page == 'add-task' %}active{% endif %}" href="/add-task">
+                Add Task
+            </a>
+            {% if 'username' in session %}
+            <a class="nav-item {% if current_page == 'logout' %}active{% endif %}" href="/logout">
+                Logout
+            </a>
+            {% else %}
+            <a class="nav-item {% if current_page == 'login' %}active{% endif %}" href="/login">
+                Login
+            </a>
+            {% endif %}
+        </nav>
+    </div>
+
+    <div class="main">
+        <header class="header-bar">
+            <h1 class="page-title">{% block title %} {% endblock %}</h1>
+        </header>
+
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

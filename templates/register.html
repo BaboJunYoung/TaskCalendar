@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+<!-- 여기선 login탭이 가장 자연스러울 것 같음 -->
+<!-- TODO: 뺀것도 디자인 보기 -->
+{% set current_page = 'login' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    <form class="register-box" action="/register", method="POST">
+        <h2>유저 생성하기</h2>
+
+        {% if error %}
+        <div class="error">{{error}}</div>
+        {% endif %}
+        
+        <!-- required "이 제출폼을 입력하세요" 뜨게하기 -->
+        <div class="input-container">
+            <div class="input">
+                <input type="text" id="username" name="username" placeholder=" " required/>
+                <label for="username">유저이름</label>
+            </div>
+            <div class="input">
+                <input type="password" id="password" name="password" placeholder=" " required/>
+                <label for="password">비밀번호</label>
+            </div>
+            <div class="input">
+                <input type="password" id="again-password" name="again-password" placeholder=" " required/>
+                <label for="again-password">비밀번호 확인</label>
+            </div>
+        </div>
+
+        <button type="submit">유저 생성하기</button>
+    </form>
+</div>
+{% endblock %}

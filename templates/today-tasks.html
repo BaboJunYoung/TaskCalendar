@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% set current_page = 'today-tasks' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/today-tasks.css') }}">
+{% endblock %}
+
+{% block title %}Today's tasks{% endblock %}
+
+{% block content %}
+<div class="today-tasks-container">
+    <form class="today-tasks-header" method="POST" action="/today-tasks">
+        <input type="number" id="task-date" name="task-date" value={{today}} required>
+        <label for="task-date">일</label>
+        <button type="submit">할일 보기</button>
+    </form>
+    <div class="today-tasks-content">
+        <div class="today-tasks-list">
+            {% if today_tasks %}
+                {% for task in today_tasks %}
+                <form class="today-tasks-item" method="POST" action="/today-tasks/{{today}}/{{loop.index0}}">
+                    <p>{{task[0]}}</p>
+                    <button type="submit">삭제하기</button>
+                </form>
+                {% endfor %}
+            {% else %}
+                <p>오늘은 할 일이 없네요!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

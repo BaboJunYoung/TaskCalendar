@@ -1,0 +1,122 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px; 
+    max-height: 850px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+/* 캘린더 제목 */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.calendar-header > .year {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+
+/* 캘린더 */
+.real-calendar-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    background-color: #ffffff;
+    border: 1.5px solid #000000;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* 요일 있는 칸 */
+.calendar-yoil {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    border-bottom: 1.5px solid #000000;
+}
+.calendar-yoil > .calendar-yoil-header {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 20px;
+}
+.calendar-yoil-header:not(:last-child) {
+    border-right: 1.5px solid #000000;
+}
+
+/* 날짜 있는 칸 */
+.date-box {
+    display: grid;
+    /* grid-template-columns: repeat(7, 1fr); */
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(5, 1fr); 
+    flex: 1; 
+}
+.date-box > .day-cell {
+    position: relative;
+    background-color: #ffffff;
+    padding-top: 40px; 
+    padding-bottom: 5px;
+}
+.date-box > .day-cell:not(:nth-child(7n)) {
+    border-right: 1.5px solid #000000;
+}
+.date-box > .day-cell:not(:nth-child(-n+7)) {
+    border-top: 1.5px solid #000000;
+}
+
+/* 날짜 표시 칸 */
+.date-num {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+}
+
+
+.day-cell.sat .date-num {
+    color: #0026ff;
+}
+.day-cell.sun .date-num {
+    color: #ff0000;
+}
+
+/* 할일 목록 칸 */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+
+.task {
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.task.task-blue {
+    background-color: #b3d7ff;
+    color: #0056b3;
+}
+.task.task-red {
+    background-color: #ffb3b3;
+    color: #990000;
+}
+.task.task-green {
+    background-color: #b3ffb7;
+    color: #005a0f;
+}

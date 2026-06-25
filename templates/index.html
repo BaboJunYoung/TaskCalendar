@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% set current_page = 'home' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="index-container">
+    <div class="index-box">
+        <h2 class="index-title">이 캘린더 사이트에 오신 것을 환영합니다!</h2>
+        <p class="index-describe">
+            이 웹사이트는 일정을 한눈에 파악하고, 일일 할 일을 효율적으로 관리할 수 있도록 도와주는 <strong>Task Calendar</strong> 서비스입니다.
+        </p>
+        <div class="index-features">
+            <p>💡 먼저 로그인을 한 뒤 사용해주세요</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
